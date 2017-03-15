@@ -1,17 +1,10 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
-import {
-  StyleSheet,
-  Dimensions,
-  Animated,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-  Easing
-} from 'react-native';
+import React, { PropTypes } from "react";
+import { StyleSheet, Dimensions, Animated, Text, TouchableWithoutFeedback, View, Easing } from "react-native";
 
-var noop = () => {};
+var noop = () => {
+};
 
 var {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get('window');
 var DEFAULT_ARROW_SIZE = new Size(10, 5);
@@ -37,7 +30,7 @@ var Popover = React.createClass({
   propTypes: {
     isVisible: PropTypes.bool,
     onClose: PropTypes.func,
-    contentStyle:View.propTypes.style,
+    contentStyle: View.propTypes.style,
   },
   getInitialState() {
     return {
@@ -157,9 +150,9 @@ var Popover = React.createClass({
       var {popoverOrigin} = geom;
 
       if (popoverOrigin.x >= displayArea.x
-          && popoverOrigin.x <= displayArea.x + displayArea.width - contentSize.width
-          && popoverOrigin.y >= displayArea.y
-          && popoverOrigin.y <= displayArea.y + displayArea.height - contentSize.height) {
+        && popoverOrigin.x <= displayArea.x + displayArea.width - contentSize.width
+        && popoverOrigin.y >= displayArea.y
+        && popoverOrigin.y <= displayArea.y + displayArea.height - contentSize.height) {
         break;
       }
     }
@@ -168,7 +161,7 @@ var Popover = React.createClass({
   },
   getArrowSize(placement) {
     var size = this.props.arrowSize;
-    switch(placement) {
+    switch (placement) {
       case 'left':
       case 'right':
         return new Size(size.height, size.width);
@@ -177,7 +170,7 @@ var Popover = React.createClass({
     }
   },
   getArrowColorStyle(color) {
-    return { borderTopColor: color };
+    return {borderTopColor: color};
   },
   getArrowRotation(placement) {
     switch (placement) {
@@ -326,7 +319,7 @@ var Popover = React.createClass({
   },
   render() {
     if (!this.props.isVisible && !this.state.isTransitioning) {
-        return null;
+      return null;
     }
 
     var {popoverOrigin, placement} = this.state;
@@ -342,7 +335,7 @@ var Popover = React.createClass({
     var arrowTransform = (StyleSheet.flatten(arrowStyle).transform || []).slice(0);
     arrowTransform.unshift({rotate: this.getArrowRotation(placement)});
     arrowStyle = [...arrowStyle, {transform: arrowTransform}];
-    var contentMarginRight=this.props.contentMarginRight? this.props.contentMarginRight:0;
+    var contentMarginRight = this.props.contentMarginRight ? this.props.contentMarginRight : 0;
     return (
       <TouchableWithoutFeedback onPress={this.props.onClose}>
         <View style={[styles.container, contentSizeAvailable && styles.containerVisible ]}>

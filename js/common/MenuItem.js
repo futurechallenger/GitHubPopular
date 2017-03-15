@@ -4,22 +4,15 @@
  */
 
 'use strict';
-import React, { Component } from 'react';
-
-import {
-  StyleSheet,
-  TouchableHighlight,
-  Text,
-  View,
-  Image
-} from 'react-native'
-import MPColors from './MPColors'
+import React, { Component } from "react";
+import { StyleSheet, TouchableHighlight, Text, View, Image } from "react-native";
+import MPColors from "./MPColors";
 
 export default class MenuItem extends React.Component {
   static propTypes = {
     icon: Image.propTypes.source,
     selectedIcon: Image.propTypes.source,
-    selected:React.PropTypes.bool,
+    selected: React.PropTypes.bool,
     title: React.PropTypes.string,
     badge: React.PropTypes.string,
     onPress: React.PropTypes.func
@@ -41,7 +34,7 @@ export default class MenuItem extends React.Component {
     return (
       <TouchableHighlight onPress={this.props.onPress}>
         <View style={styles.container}>
-          <Image style={styles.icon} source={icon} />
+          <Image style={styles.icon} source={icon}/>
           <Text style={[styles.title, selectedTitleStyle]}>
             {this.props.title}
           </Text>

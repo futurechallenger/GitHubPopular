@@ -1,44 +1,41 @@
-
-import React,{Component} from 'react'
-import {
-    Navigator,
-}from 'react-native'
-
-import RepositoryUtils from '../expand/dao/RepositoryUtils'
-import WelcomePage from './WelcomePage'
+import React, { Component } from "react";
+import { Navigator } from "react-native";
+import RepositoryUtils from "../expand/dao/RepositoryUtils";
+import WelcomePage from "./WelcomePage";
 
 
-function setup(){
+function setup() {
 
-    RepositoryUtils.init(true);
+  RepositoryUtils.init(true);
 
-    class Root extends Component {
+  class Root extends Component {
 
-        constructor(props) {
-            super(props);
-            this.state = {
-            };
-        }
-        _renderScene(route, navigator) {
-            let Component = route.component;
-            return (
-                <Component {...route.params} navigator={navigator}/>
-            );
-        }
-        render() {
-            return (
-                <Navigator
-                    initialRoute={{
+    constructor(props) {
+      super(props);
+      this.state = {};
+    }
+
+    _renderScene(route, navigator) {
+      let Component = route.component;
+      return (
+        <Component {...route.params} navigator={navigator}/>
+      );
+    }
+
+    render() {
+      return (
+        <Navigator
+          initialRoute={{
                         name: 'WelcomePage',
                         component:WelcomePage
                     }}
-                    renderScene={(e, i)=>this._renderScene(e, i)}
-                />
-            );
-        }
+          renderScene={(e, i)=>this._renderScene(e, i)}
+        />
+      );
     }
+  }
 
-    return <Root/>;
+  return <Root/>;
 }
 
 module.exports = setup;
