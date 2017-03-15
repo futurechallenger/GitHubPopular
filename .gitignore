@@ -44,4 +44,4 @@ android/keystores/debug.keystore
 
 # VSCode
 .vscode
-jsconfig.js
+jsconfig.json
