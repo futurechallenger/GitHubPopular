@@ -53,7 +53,6 @@ export default class HomePage extends Component {
     this.setState({
       selectedTab: object,
     })
-
   }
 
   onReStart(jumpToTab) {

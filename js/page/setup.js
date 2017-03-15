@@ -18,7 +18,7 @@ function setup() {
     _renderScene(route, navigator) {
       let Component = route.component;
       return (
-        <Component {...route.params} navigator={navigator}/>
+        <Component {...route.params} navigator={navigator} />
       );
     }
 
@@ -26,16 +26,16 @@ function setup() {
       return (
         <Navigator
           initialRoute={{
-                        name: 'WelcomePage',
-                        component:WelcomePage
-                    }}
-          renderScene={(e, i)=>this._renderScene(e, i)}
+            name: 'WelcomePage',
+            component: WelcomePage
+          }}
+          renderScene={(e, i) => this._renderScene(e, i)}
         />
       );
     }
   }
 
-  return <Root/>;
+  return <Root />;
 }
 
 module.exports = setup;
